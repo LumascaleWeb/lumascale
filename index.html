@@ -178,12 +178,6 @@
     transition: opacity 0.2s ease, transform 0.2s ease; max-width: 85%; text-align: center;
   }
   .app-toast.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
-  .wake-word-row { display: flex; justify-content: center; margin-bottom: 12px; }
-  .wake-word-toggle {
-    border: 1px solid var(--border); background: var(--surface-2); color: var(--text-dim);
-    font-size: 12.5px; font-weight: 600; padding: 7px 16px; border-radius: 999px; cursor: pointer;
-  }
-  .wake-word-toggle.active { background: rgba(139,92,246,0.14); color: var(--brand); border-color: rgba(139,92,246,0.35); animation: voicePulse 1.6s ease-in-out infinite; }
 
   .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; margin-bottom: 12px; box-shadow: var(--shadow-sm); }
   .recipe-card {
@@ -433,7 +427,7 @@
     width: 340px; flex-shrink: 0; border-right: 1px solid var(--border); background: var(--surface);
     display: flex; flex-direction: column; height: 100vh; position: sticky; top: 0;
   }
-  .master-detail-list .search-box { margin: 0 14px 8px; }
+  .master-detail-list .search-box { width: calc(100% - 28px); margin: 0 14px 8px; }
   .master-detail-list-scroll { flex: 1; min-height: 0; overflow-y: auto; padding: 0 10px; }
   .master-detail-detail { flex: 1; min-width: 0; overflow-y: auto; height: 100vh; padding: 24px 32px; }
   .master-detail-client-row.selected { background: rgba(139,92,246,0.09); border: 1px solid rgba(139,92,246,0.35); }
@@ -555,7 +549,7 @@
       signup_back_to_login: "Aller à la connexion",
       clients_search: "Rechercher un client...", clients_empty_none: "Aucun client pour l'instant. Ajoute le premier !",
       clients_empty_search: "Aucun client ne correspond à ta recherche.", clients_new: "+ Nouveau client", clients_select_hint: "Sélectionne un client dans la liste pour voir sa fiche.",
-      client_no_recipes: "Aucune recette enregistrée pour ce client.", client_delete: "Supprimer ce client",
+      client_no_recipes: "Aucune recette enregistrée pour ce client.", client_delete: "Supprimer ce client", shade_suggest_btn: "📷 Suggérer une teinte par photo", shade_suggest_title: "Suggestion de teinte par photo", shade_suggest_disclaimer: "Point de départ visuel uniquement, à valider par ton expertise — pas une formule définitive (l'éclairage et l'écran de la photo influencent la couleur perçue).", shade_suggest_result: "Teinte du nuancier la plus proche :", shade_suggest_no_catalog: "Ajoute des teintes à ton nuancier (Réglages) pour utiliser cette fonction.", shade_suggest_use: "Utiliser cette teinte", shade_suggest_pick_photo: "Choisis une photo d'abord.", shade_suggest_base_label: "Base de départ de la cliente", shade_suggest_base_placeholder: "Sélectionne le niveau actuel...", shade_suggest_set_base_first: "Indique la base de départ pour savoir si un éclaircissement est nécessaire.", shade_suggest_big_lift: "Écart important ({gap} niveaux) — une simple coloration ne suffira probablement pas. Une décoloration préalable est presque certainement nécessaire, possiblement sur plusieurs séances.", shade_suggest_small_lift: "Cette transition demande un peu d'éclaircissement — vérifie si un léger boost est nécessaire selon ta base réelle.", shade_suggest_darker_ok: "Transition vers une base égale ou plus foncée — une coloration classique peut généralement suffire.", shade_level_1: "Noir", shade_level_2: "Brun très foncé", shade_level_3: "Châtain foncé", shade_level_4: "Châtain", shade_level_5: "Châtain clair", shade_level_6: "Blond foncé", shade_level_7: "Blond", shade_level_8: "Blond clair", shade_level_9: "Blond très clair", shade_level_10: "Blond extra clair", shade_suggest_unknown_level: "Nom de teinte personnalisé — impossible de calculer automatiquement l'écart de niveau. Juge par toi-même si un éclaircissement est nécessaire.",
       client_new_recipe: "+ Nouvelle recette", client_send: "📡 Envoyer", client_recipe_delete_confirm: "Supprimer la recette \"{label}\" ?",
       client_delete_confirm: "Supprimer {name} et toutes ses recettes ?", client_edit_title: "Fiche client",
       client_field_firstname: "Prénom", client_field_lastname: "Nom", client_field_phone: "Téléphone", client_field_address: "Adresse",
@@ -620,7 +614,7 @@
       tip_balance: "Si la balance n'apparaît pas, vérifie qu'elle est allumée et à moins de 5 mètres.",
       tip_sav: "Indique bien le numéro de série : ça permet un diagnostic à distance plus rapide.",
       tip_settings: "Change ton mot de passe régulièrement pour sécuriser l'accès.",
-      nav_stats: "Statistiques", title_stats: "Statistiques",
+      nav_stats: "Statistiques", title_stats: "Statistiques", nav_inventory: "Inventaire", recipe_photo_before: "Avant", recipe_photo_after: "Après", recipe_photo_replace: "Remplacer la photo", inventory_hint: "Le stock diminue automatiquement à chaque recette envoyée à un client.", inventory_empty: "Aucun produit suivi pour l'instant — il apparaîtra ici dès sa première utilisation.", inventory_low: "Stock bas", inventory_restock: "+ Réapprovisionner", inventory_new_item: "+ Ajouter un produit", inventory_restock_title: "Réapprovisionner \"{label}\"", inventory_add_qty: "Quantité ajoutée (g)", inventory_alert_threshold: "Seuil d'alerte stock bas (g)", inventory_save: "Enregistrer", inventory_new_title: "Nouveau produit suivi", inventory_name: "Nom du produit", inventory_current_stock: "Stock actuel (g)", inventory_name_required: "Le nom est requis.", inventory_price_per_g: "Prix au gramme (optionnel)", inventory_price_optional: "ex: 0.15", stats_avg_cost: "Coût moyen par client", stats_avg_cost_hint: "€ de produit consommé, en moyenne, par client ayant reçu une recette", stats_avg_cost_missing: "Renseigne un prix au gramme dans Inventaire pour voir cette statistique.",
       forgot_password: "Mot de passe oublié ?", forgot_title: "Réinitialiser le mot de passe",
       forgot_body: "Indique ton email, tu recevras un lien pour choisir un nouveau mot de passe.",
       forgot_send: "Envoyer le lien", forgot_sent: "✓ Email envoyé ! Vérifie ta boîte de réception.",
@@ -657,7 +651,7 @@
       signup_back_to_login: "Go to sign in",
       clients_search: "Search a client...", clients_empty_none: "No clients yet. Add the first one!",
       clients_empty_search: "No client matches your search.", clients_new: "+ New client", clients_select_hint: "Select a client from the list to see their profile.",
-      client_no_recipes: "No recipe recorded for this client yet.", client_delete: "Delete this client",
+      client_no_recipes: "No recipe recorded for this client yet.", client_delete: "Delete this client", shade_suggest_btn: "📷 Suggest a shade from a photo", shade_suggest_title: "Photo-based shade suggestion", shade_suggest_disclaimer: "Visual starting point only, to validate with your own expertise — not a final formula (lighting and screen affect the perceived color).", shade_suggest_result: "Closest shade in your catalog:", shade_suggest_no_catalog: "Add shades to your catalog (Settings) to use this feature.", shade_suggest_use: "Use this shade", shade_suggest_pick_photo: "Pick a photo first.", shade_suggest_base_label: "Client's starting base", shade_suggest_base_placeholder: "Select current level...", shade_suggest_set_base_first: "Set the starting base to know if lightening is needed.", shade_suggest_big_lift: "Big gap ({gap} levels) — a simple color likely won't be enough. Pre-lightening is almost certainly needed, possibly over several sessions.", shade_suggest_small_lift: "This transition needs a bit of lift — check if a light boost is needed based on the real base.", shade_suggest_darker_ok: "Going to an equal or darker base — a standard color can usually handle this.", shade_level_1: "Black", shade_level_2: "Darkest brown", shade_level_3: "Dark brown", shade_level_4: "Brown", shade_level_5: "Light brown", shade_level_6: "Dark blonde", shade_level_7: "Blonde", shade_level_8: "Light blonde", shade_level_9: "Very light blonde", shade_level_10: "Lightest blonde", shade_suggest_unknown_level: "Custom shade name — can't automatically calculate the level gap. Use your own judgment on whether lightening is needed.",
       client_new_recipe: "+ New recipe", client_send: "📡 Send", client_recipe_delete_confirm: "Delete recipe \"{label}\"?",
       client_delete_confirm: "Delete {name} and all their recipes?", client_edit_title: "Client profile",
       client_field_firstname: "First name", client_field_lastname: "Last name", client_field_phone: "Phone", client_field_address: "Address",
@@ -722,7 +716,7 @@
       tip_balance: "If the scale doesn't appear, check it's powered on and within 5 meters.",
       tip_sav: "Include the serial number: it speeds up remote diagnosis.",
       tip_settings: "Change your password regularly to keep access secure.",
-      nav_stats: "Statistics", title_stats: "Statistics",
+      nav_stats: "Statistics", title_stats: "Statistics", nav_inventory: "Inventory", recipe_photo_before: "Before", recipe_photo_after: "After", recipe_photo_replace: "Replace photo", inventory_hint: "Stock automatically decreases each time a recipe is sent to a client.", inventory_empty: "No product tracked yet — it will appear here the first time it's used.", inventory_low: "Low stock", inventory_restock: "+ Restock", inventory_new_item: "+ Add a product", inventory_restock_title: "Restock \"{label}\"", inventory_add_qty: "Quantity added (g)", inventory_alert_threshold: "Low stock alert threshold (g)", inventory_save: "Save", inventory_new_title: "New tracked product", inventory_name: "Product name", inventory_current_stock: "Current stock (g)", inventory_name_required: "Name is required.", inventory_price_per_g: "Price per gram (optional)", inventory_price_optional: "e.g. 0.15", stats_avg_cost: "Average cost per client", stats_avg_cost_hint: "$ of product used, on average, per client who received a recipe", stats_avg_cost_missing: "Set a price per gram in Inventory to see this stat.",
       forgot_password: "Forgot password?", forgot_title: "Reset password",
       forgot_body: "Enter your email, you'll receive a link to choose a new password.",
       forgot_send: "Send link", forgot_sent: "✓ Email sent! Check your inbox.",
@@ -759,7 +753,7 @@
       signup_back_to_login: "Ir a iniciar sesión",
       clients_search: "Buscar un cliente...", clients_empty_none: "Aún no hay clientes. ¡Añade el primero!",
       clients_empty_search: "Ningún cliente coincide.", clients_new: "+ Nuevo cliente", clients_select_hint: "Selecciona un cliente de la lista para ver su ficha.",
-      client_no_recipes: "Ninguna receta registrada todavía.", client_delete: "Eliminar este cliente",
+      client_no_recipes: "Ninguna receta registrada todavía.", client_delete: "Eliminar este cliente", shade_suggest_btn: "📷 Sugerir un tono con foto", shade_suggest_title: "Sugerencia de tono por foto", shade_suggest_disclaimer: "Solo un punto de partida visual, a validar con tu propia experiencia — no es una fórmula definitiva (la luz y la pantalla afectan el color percibido).", shade_suggest_result: "Tono más cercano en tu catálogo:", shade_suggest_no_catalog: "Añade tonos a tu catálogo (Ajustes) para usar esta función.", shade_suggest_use: "Usar este tono", shade_suggest_pick_photo: "Elige una foto primero.", shade_suggest_base_label: "Base de partida de la clienta", shade_suggest_base_placeholder: "Selecciona el nivel actual...", shade_suggest_set_base_first: "Indica la base de partida para saber si hace falta aclarar.", shade_suggest_big_lift: "Diferencia importante ({gap} niveles) — un tinte simple probablemente no bastará. Casi seguro hará falta decolorar antes, posiblemente en varias sesiones.", shade_suggest_small_lift: "Esta transición necesita algo de aclarado — comprueba si hace falta un ligero refuerzo según la base real.", shade_suggest_darker_ok: "Transición hacia una base igual o más oscura — un tinte normal suele bastar.", shade_level_1: "Negro", shade_level_2: "Castaño muy oscuro", shade_level_3: "Castaño oscuro", shade_level_4: "Castaño", shade_level_5: "Castaño claro", shade_level_6: "Rubio oscuro", shade_level_7: "Rubio", shade_level_8: "Rubio claro", shade_level_9: "Rubio muy claro", shade_level_10: "Rubio extra claro", shade_suggest_unknown_level: "Nombre de tono personalizado — no se puede calcular automáticamente la diferencia de nivel. Usa tu propio criterio sobre si hace falta aclarar.",
       client_new_recipe: "+ Nueva receta", client_send: "📡 Enviar", client_recipe_delete_confirm: "¿Eliminar la receta \"{label}\"?",
       client_delete_confirm: "¿Eliminar a {name} y todas sus recetas?", client_edit_title: "Ficha del cliente",
       client_field_firstname: "Nombre", client_field_lastname: "Apellido", client_field_phone: "Teléfono", client_field_address: "Dirección",
@@ -824,7 +818,7 @@
       tip_balance: "Si la báscula no aparece, comprueba que está encendida y a menos de 5 metros.",
       tip_sav: "Indica bien el número de serie: agiliza el diagnóstico remoto.",
       tip_settings: "Cambia tu contraseña regularmente para mantener el acceso seguro.",
-      nav_stats: "Estadísticas", title_stats: "Estadísticas",
+      nav_stats: "Estadísticas", title_stats: "Estadísticas", nav_inventory: "Inventario", recipe_photo_before: "Antes", recipe_photo_after: "Después", recipe_photo_replace: "Reemplazar foto", inventory_hint: "El stock disminuye automáticamente con cada receta enviada a un cliente.", inventory_empty: "Ningún producto seguido todavía — aparecerá aquí en su primer uso.", inventory_low: "Stock bajo", inventory_restock: "+ Reponer", inventory_new_item: "+ Añadir un producto", inventory_restock_title: "Reponer \"{label}\"", inventory_add_qty: "Cantidad añadida (g)", inventory_alert_threshold: "Umbral de alerta de stock bajo (g)", inventory_save: "Guardar", inventory_new_title: "Nuevo producto seguido", inventory_name: "Nombre del producto", inventory_current_stock: "Stock actual (g)", inventory_name_required: "El nombre es obligatorio.", inventory_price_per_g: "Precio por gramo (opcional)", inventory_price_optional: "ej: 0.15", stats_avg_cost: "Costo medio por cliente", stats_avg_cost_hint: "€ de producto usado, en promedio, por cliente que recibio una receta", stats_avg_cost_missing: "Indica un precio por gramo en Inventario para ver esta estadistica.",
       forgot_password: "¿Contraseña olvidada?", forgot_title: "Restablecer la contraseña",
       forgot_body: "Indica tu correo, recibirás un enlace para elegir una nueva contraseña.",
       forgot_send: "Enviar enlace", forgot_sent: "✓ ¡Correo enviado! Revisa tu bandeja de entrada.",
@@ -977,6 +971,92 @@
     const mix = v => Math.round(v + (target - v) * p);
     return "#" + [mix(r), mix(g), mix(b)].map(v => v.toString(16).padStart(2,"0")).join("");
   }
+  // Photos avant/apres liees a une recette — meme principe que l'avatar
+  // client (redimensionnee cote navigateur, stockee en base64 directement
+  // dans la ligne, pas de stockage separe) pour rester coherent avec le
+  // reste de l'app.
+  function openPhotoViewerModal(recipe, fieldName, labelKey, onChanged) {
+    openModal({
+      title: t(labelKey),
+      bodyBuilder: () => {
+        const wrap = el("div");
+        const img = document.createElement("img");
+        img.src = recipe[fieldName]; img.style.width = "100%"; img.style.borderRadius = "10px";
+        wrap.appendChild(img);
+        return wrap;
+      },
+      confirmLabel: t("recipe_photo_replace"),
+      onConfirm: async () => {
+        // Ferme d'abord la modale (comportement normal du bouton), PUIS
+        // ouvre le selecteur de fichier — plus previsible que de garder la
+        // modale ouverte pendant que la boite de dialogue native s'affiche
+        // par-dessus, ce qui aurait laisse l'ancienne photo visible pendant
+        // le remplacement.
+        setTimeout(() => {
+          const fileInput = el("input", { type: "file", accept: "image/*", capture: "environment", style: "display:none;" });
+          document.body.appendChild(fileInput);
+          fileInput.addEventListener("change", async (e) => {
+            const file = e.target.files[0]; fileInput.remove(); if (!file) return;
+            try {
+              const dataUrl = await resizeImageFile(file, 500);
+              const { error } = await sb.from("recipes").update({ [fieldName]: dataUrl }).eq("id", recipe.id);
+              if (error) { alert("Erreur : " + error.message); return; }
+              recipe[fieldName] = dataUrl;
+              onChanged();
+            } catch (err) { alert(err.message); }
+          });
+          fileInput.click();
+        }, 200);
+      }
+    });
+  }
+  function renderBeforeAfterRow(recipe) {
+    const row = el("div", { style: "display:flex; gap:10px; margin-top:10px;" });
+    function makeSlot(fieldName, labelKey) {
+      const slot = el("div", { style: "flex:1; text-align:center;" });
+      const hasPhoto = !!recipe[fieldName];
+      const box = el("div", {
+        style: `height:70px; border-radius:10px; border:1px dashed var(--border); display:flex; align-items:center; justify-content:center; cursor:pointer; overflow:hidden; background:${hasPhoto ? "none" : "var(--surface-2)"};`
+      });
+      if (hasPhoto) {
+        const img = document.createElement("img");
+        img.src = recipe[fieldName]; img.style.width = "100%"; img.style.height = "100%"; img.style.objectFit = "cover";
+        box.appendChild(img);
+      } else {
+        box.appendChild(el("span", { style: "font-size:20px; color:var(--text-dim);", text: "📷" }));
+      }
+      if (hasPhoto) {
+        // Une photo existe deja : cliquer l'AGRANDIT (usage reel : la
+        // regarder plus tard), plutot que de la remplacer par accident.
+        // Remplacer reste possible, mais depuis la vue agrandie uniquement.
+        box.addEventListener("click", () => openPhotoViewerModal(recipe, fieldName, labelKey, render));
+      } else {
+        // capture="environment" : prise directement sur le moment (avant/apres
+        // sont presque toujours photographies en salon, pas choisis dans une
+        // galerie existante) — ouvre l'appareil photo directement.
+        const fileInput = el("input", { type: "file", accept: "image/*", capture: "environment", style: "display:none;" });
+        box.addEventListener("click", () => fileInput.click());
+        fileInput.addEventListener("change", async (e) => {
+          const file = e.target.files[0]; if (!file) return;
+          try {
+            const dataUrl = await resizeImageFile(file, 500);
+            const { error } = await sb.from("recipes").update({ [fieldName]: dataUrl }).eq("id", recipe.id);
+            if (error) { alert("Erreur : " + error.message); return; }
+            recipe[fieldName] = dataUrl;
+            render();
+          } catch (err) { alert(err.message); }
+        });
+        slot.appendChild(fileInput);
+      }
+      slot.appendChild(box);
+      slot.appendChild(el("div", { class: "client-meta", style: "margin-top:4px;", text: t(labelKey) }));
+      return slot;
+    }
+    row.appendChild(makeSlot("photo_before_url", "recipe_photo_before"));
+    row.appendChild(makeSlot("photo_after_url", "recipe_photo_after"));
+    return row;
+  }
+
   function renderRecipeCardHeader(label, steps, dateText) {
     const accentStep = getRecipeAccentStep(steps);
     const accent = accentStep ? getStepSwatch(accentStep).bg : "#B9BAC4";
@@ -1088,7 +1168,6 @@
     drawerOpen: false, seenTips: {}, language: localStorage.getItem("lumascale_lang") || detectBrowserLanguage(),
     loginError: null,
     loginBle: { commandChar: null },
-    voice: { wakeActive: false, recognitionInstance: null },
     ble: {},
     god: { salons: [], savRequests: [], codes: [], admins: [], allUsers: [], defaultShades: [], defaultVolumes: [], defaultTemplates: [], contentLang: "fr", codesQuery: "", codesMore: true, usersQuery: "", usersMore: true },
     faqItems: [], changelogEntries: []
@@ -1206,16 +1285,53 @@
     state.shadesCatalog = shades || [];
     state.volumesCatalog = volumes || [];
     if (state.salon.theme_accent) applyThemeAccent(state.salon.theme_accent);
+    await loadInventoryData();
     await loadContentData();
   }
 
   async function loadContentData() {
-    const [{ data: faq }, { data: changelog }] = await Promise.all([
+    const [{ data: faq }, { data: changelog }, { data: defTpl }] = await Promise.all([
       sb.from("faq_items").select("*").order("position"),
-      sb.from("changelog_entries").select("*").order("created_at", { ascending: false })
+      sb.from("changelog_entries").select("*").order("created_at", { ascending: false }),
+      // Chargees dans les 3 langues d'un coup (peu de lignes) pour pouvoir
+      // retraduire dynamiquement le nom des recettes de base sans refaire
+      // une requete a chaque changement de langue — voir templateDisplayLabel().
+      sb.from("default_templates").select("language, position, label")
     ]);
     state.faqItems = faq || [];
     state.changelogEntries = changelog || [];
+    state.defaultTemplatesAllLangs = defTpl || [];
+  }
+
+  // Nom affiche d'une recette : si c'est une recette de base jamais
+  // renommee (default_position non nul), on retraduit dynamiquement dans
+  // la langue actuelle de l'app plutot que d'afficher le nom fige a
+  // l'inscription. Des qu'elle est renommee manuellement, default_position
+  // est mis a null (voir la sauvegarde dans renderTemplateEdit) et le nom
+  // choisi par le salon est alors toujours respecte.
+  // Decompte automatique du stock : pour chaque produit utilise dans une
+  // recette envoyee, retire le poids correspondant de l'inventaire du
+  // salon. Cree l'article automatiquement (a 0g) s'il n'existe pas encore,
+  // pour que le salon le voie apparaitre et puisse renseigner son vrai
+  // stock de depart, plutot que de echouer silencieusement.
+  async function decrementInventoryForSteps(steps) {
+    for (const step of (steps || [])) {
+      if (!step.label || !step.weight) continue;
+      const { data: existing } = await sb.from("inventory_items").select("id, current_stock_g").eq("salon_id", state.profile.salon_id).eq("label", step.label).maybeSingle();
+      if (existing) {
+        await sb.from("inventory_items").update({ current_stock_g: Math.max(0, existing.current_stock_g - step.weight), updated_at: new Date().toISOString() }).eq("id", existing.id);
+      } else {
+        await sb.from("inventory_items").insert({ salon_id: state.profile.salon_id, label: step.label, current_stock_g: 0 });
+      }
+    }
+  }
+
+  function templateDisplayLabel(tpl) {
+    if (tpl && tpl.default_position !== null && tpl.default_position !== undefined) {
+      const trouve = (state.defaultTemplatesAllLangs || []).find(d => d.language === state.language && d.position === tpl.default_position);
+      if (trouve) return trouve.label;
+    }
+    return tpl ? tpl.label : "";
   }
 
   async function loadClientRecipes(clientId) {
@@ -1256,14 +1372,14 @@
   // Outil puissant avec peu de garde-fous par rapport aux écrans dédiés
   // ci-dessus : à utiliser en connaissance de cause.
   // ==========================================================================
-  const MANAGEABLE_TABLES = ["clients","recipes","templates","shades_catalog","volumes_catalog","salons","profiles","activation_codes","sav_requests","faq_items","changelog_entries","platform_admins","default_shades","default_volumes","default_templates","activity_log"];
+  const MANAGEABLE_TABLES = ["clients","recipes","templates","shades_catalog","volumes_catalog","salons","profiles","activation_codes","sav_requests","faq_items","changelog_entries","platform_admins","default_shades","default_volumes","default_templates","activity_log","inventory_items"];
   const TABLE_PK = { activation_codes: "code" };
   function getTablePk(tableName) { return TABLE_PK[tableName] || "id"; }
 
   const TABLE_COLUMNS_FALLBACK = {
     clients: ["id","salon_id","first_name","last_name","phone","address","photo_url","created_at"],
     recipes: ["id","salon_id","client_id","label","steps","created_at"],
-    templates: ["id","salon_id","label","steps","created_at"],
+    templates: ["id","salon_id","label","steps","created_at","default_position"],
     shades_catalog: ["id","salon_id","label","color"],
     volumes_catalog: ["id","salon_id","label","color"],
     salons: ["id","name","scale_serial","logo_url","theme_accent","led_config","active","created_at"],
@@ -1276,7 +1392,8 @@
     default_shades: ["id","language","label","color","position","created_at"],
     default_volumes: ["id","language","label","color","position","created_at"],
     default_templates: ["id","language","label","steps","position","created_at"],
-    activity_log: ["id","actor_email","action","target_label","created_at"]
+    activity_log: ["id","actor_email","action","target_label","created_at"],
+    inventory_items: ["id","salon_id","label","current_stock_g","alert_threshold_g","price_per_g","created_at","updated_at"]
   };
 
   async function loadAndRenderTable(tableName, container) {
@@ -1428,16 +1545,34 @@
   }
   function renderGodUsersList(container) {
     container.innerHTML = "";
-    if (state.god.allUsers.length === 0) container.appendChild(el("div", { class: "client-meta", text: "Aucun compte trouvé." }));
+    if (state.god.allUsers.length === 0) { container.appendChild(el("div", { class: "client-meta", text: "Aucun compte trouvé." })); return; }
+
+    // Regroupement par salon (au lieu d'une liste plate) — chaque salon
+    // devient un petit groupe avec son superviseur en tete, puis ses
+    // employes, pour que l'equipe d'un meme salon soit visible d'un coup.
+    const groupes = new Map(); // salon_id (ou "—") -> { nom, users: [] }
     state.god.allUsers.forEach(u => {
-      container.appendChild(el("div", { class: "device-info-row" }, [
-        el("div", {}, [
-          el("div", { text: u.username || "(sans nom)" }),
-          el("span", { class: "client-meta", text: (u.salons && u.salons.name) || "—" })
-        ]),
-        el("span", { class: `role-badge role-${u.role}`, text: ROLE_LABELS[u.role] || u.role })
-      ]));
+      const key = u.salon_id || "—";
+      const nom = (u.salons && u.salons.name) || "Sans salon";
+      if (!groupes.has(key)) groupes.set(key, { nom, users: [] });
+      groupes.get(key).users.push(u);
     });
+    const ordreRole = { patron: 0, employe: 1, god: 2 };
+    const groupesTries = Array.from(groupes.values()).sort((a, b) => a.nom.localeCompare(b.nom));
+
+    groupesTries.forEach(groupe => {
+      groupe.users.sort((a, b) => (ordreRole[a.role] ?? 9) - (ordreRole[b.role] ?? 9));
+      const bloc = el("div", { class: "card", style: "margin-bottom:10px; padding:12px;" });
+      bloc.appendChild(el("div", { style: "font-weight:700; font-size:13px; margin-bottom:6px; color:var(--text-dim);", text: groupe.nom.toUpperCase() + ` (${groupe.users.length})` }));
+      groupe.users.forEach(u => {
+        bloc.appendChild(el("div", { class: "device-info-row", style: "padding:6px 0;" }, [
+          el("div", { text: u.username || "(sans nom)" }),
+          el("span", { class: `role-badge role-${u.role}`, text: ROLE_LABELS[u.role] || u.role })
+        ]));
+      });
+      container.appendChild(bloc);
+    });
+
     if (state.god.usersMore && !state.god.usersQuery.trim()) {
       const loadMoreBtn = el("button", { class: "btn btn-secondary", style: "margin-top:10px;", text: "Charger plus" });
       loadMoreBtn.addEventListener("click", () => loadMoreGodUsers(container));
@@ -1498,11 +1633,6 @@
     const wrap = el("div", { class: "master-detail-wrap" });
 
     const listPane = el("div", { class: "master-detail-list" });
-    const wakeRow = el("div", { class: "wake-word-row" });
-    const wakeBtn = el("button", { class: "wake-word-toggle" + (state.voice.wakeActive ? " active" : ""), text: "🎙️ " + t(state.voice.wakeActive ? "voice_wake_on" : "voice_wake_off") });
-    wakeBtn.addEventListener("click", toggleWakeWordListening);
-    wakeRow.appendChild(wakeBtn);
-    listPane.appendChild(wakeRow);
     const searchInput = el("input", { type: "text", placeholder: t("clients_search"), class: "search-box" });
     const listWrap = el("div", { class: "master-detail-list-scroll" });
     searchInput.addEventListener("input", (e) => renderClientCardsMD(listWrap, e.target.value));
@@ -1603,6 +1733,7 @@
     else if (state.view === "sav") content = renderSavScreen();
     else if (state.view === "settings") content = renderSettingsScreen();
     else if (state.view === "stats") content = renderStatsScreen();
+    else if (state.view === "inventory") content = renderInventoryScreen();
     else if (state.view === "about") content = renderAboutScreen();
     if (!isMasterDetail) content.classList.add("single-column-view");
     contentWrap.appendChild(content);
@@ -1687,6 +1818,7 @@
     container.appendChild(navItem("📡", t("nav_balance"), "balance"));
     container.appendChild(navItem("🛟", t("nav_sav"), "sav"));
     container.appendChild(navItem("⚙️", t("nav_settings"), "settings"));
+    if (isPatron()) container.appendChild(navItem("📦", t("nav_inventory"), "inventory"));
     if (isPatron()) container.appendChild(navItem("📊", t("nav_stats"), "stats"));
     container.appendChild(el("div", { class: "drawer-section-label", text: t("nav_app_section") }));
     container.appendChild(navItem("ℹ️", t("nav_about"), "about"));
@@ -2091,11 +2223,6 @@
   // ==========================================================================
   function renderClientsList() {
     const main = el("main");
-    const wakeRow = el("div", { class: "wake-word-row" });
-    const wakeBtn = el("button", { class: "wake-word-toggle" + (state.voice.wakeActive ? " active" : ""), text: (state.voice.wakeActive ? "🎙️ " : "🎙️ ") + t(state.voice.wakeActive ? "voice_wake_on" : "voice_wake_off") });
-    wakeBtn.addEventListener("click", toggleWakeWordListening);
-    wakeRow.appendChild(wakeBtn);
-    main.appendChild(wakeRow);
     const listWrap = el("div");
     const searchInput = el("input", { type: "text", placeholder: t("clients_search"), class: "search-box" });
     searchInput.addEventListener("input", (e) => renderClientCards(listWrap, e.target.value));
@@ -2177,7 +2304,7 @@
     const words = normalizedText.split(" ").filter(Boolean);
     let best = null, bestScore = 0;
     (state.templates || []).forEach(tpl => {
-      const label = normalizeVoiceText(tpl.label);
+      const label = normalizeVoiceText(templateDisplayLabel(tpl));
       let score = normalizedText.includes(label) ? 1 : 0;
       const labelWords = label.split(/[\s.]+/).filter(w => w.length > 1);
       if (labelWords.length) {
@@ -2242,84 +2369,6 @@
   // (le micro tourne en continu tant que c'est actif, ce qui a un cout
   // batterie et souleve une vraie question de vie privee : jamais actif
   // par defaut).
-  function toggleWakeWordListening() {
-    if (state.voice.wakeActive) {
-      state.voice.wakeActive = false;
-      if (state.voice.recognitionInstance) { try { state.voice.recognitionInstance.stop(); } catch(e){} state.voice.recognitionInstance = null; }
-      render();
-      return;
-    }
-    const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
-    if (!SpeechRec) { openVoiceResultModal({ error: t("voice_unsupported") }); return; }
-    state.voice.wakeActive = true;
-    render();
-    startWakeListener();
-  }
-  function startWakeListener() {
-    const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
-    const recognition = new SpeechRec();
-    recognition.lang = detectedSpeechLang();
-    recognition.continuous = true;
-    recognition.interimResults = false;
-    state.voice.recognitionInstance = recognition;
-    let restartFailCount = 0;
-
-    // Detection du mot-cle tolerante aux erreurs de reconnaissance : "LumaScale"
-    // est un nom invente, souvent mal transcrit ("Luma Scale", "Loumascale",
-    // "Lumas Kel"...). On compare chaque mot ET chaque paire de mots
-    // consecutifs a "lumascale" par similarite, plutot que d'exiger une
-    // correspondance exacte.
-    function findWakeWordCut(norm) {
-      const words = norm.split(" ").filter(Boolean);
-      for (let i = 0; i < words.length; i++) {
-        if (textSimilarity(words[i], "lumascale") >= 0.6) {
-          return words.slice(0, i + 1).join(" ").length;
-        }
-        if (i + 1 < words.length) {
-          const pair = words[i] + words[i + 1];
-          if (textSimilarity(pair, "lumascale") >= 0.65) {
-            return words.slice(0, i + 2).join(" ").length;
-          }
-        }
-      }
-      return -1;
-    }
-
-    recognition.onresult = (event) => {
-      for (let i = event.resultIndex; i < event.results.length; i++) {
-        const transcript = event.results[i][0].transcript;
-        const norm = normalizeVoiceText(transcript);
-        const cut = findWakeWordCut(norm);
-        if (cut >= 0) handleVoiceTranscript(transcript.slice(cut).trim() || transcript);
-      }
-    };
-
-    function restart(delayMs) {
-      if (!state.voice.wakeActive) return;
-      setTimeout(() => {
-        if (!state.voice.wakeActive) return;
-        try {
-          recognition.start();
-          restartFailCount = 0;
-        } catch (e) {
-          restartFailCount++;
-          if (restartFailCount >= 5) {
-            // Echecs repetes : on arrete pour de vrai plutot que de laisser
-            // croire que l'ecoute est active alors qu'elle est morte en silence.
-            state.voice.wakeActive = false;
-            state.voice.recognitionInstance = null;
-            render();
-          } else {
-            restart(800);
-          }
-        }
-      }, delayMs);
-    }
-    recognition.onend = () => restart(400);
-    recognition.onerror = () => restart(800);
-    try { recognition.start(); } catch (e) {}
-  }
-
   function openVoiceResultModal({ error, transcript, result }) {
     openModal({
       title: t("voice_modal_title"),
@@ -2335,7 +2384,7 @@
         }
         wrap.appendChild(el("div", { class: "field-hint", style: "margin-bottom:6px;", text: t("voice_understood_as") }));
         wrap.appendChild(el("div", { class: "card" }, [
-          el("div", { style: "display:flex; align-items:center; gap:12px;" }, [renderAvatar(client, "avatar-sm"), el("div", {}, [el("div",{class:"client-name",text:clientDisplayName(client)}), el("div",{class:"client-meta",text:template.label})])])
+          el("div", { style: "display:flex; align-items:center; gap:12px;" }, [renderAvatar(client, "avatar-sm"), el("div", {}, [el("div",{class:"client-name",text:clientDisplayName(client)}), el("div",{class:"client-meta",text:templateDisplayLabel(template)})])])
         ]));
         return wrap;
       },
@@ -2347,7 +2396,7 @@
         if (!client || !template) return;
         state.currentClientId = client.id;
         await loadClientRecipes(client.id);
-        state.currentRecipe = { label: template.label, steps: template.steps };
+        state.currentRecipe = { label: templateDisplayLabel(template), steps: template.steps };
         resetBleState();
         state.view = "recipe-send";
         render();
@@ -2383,6 +2432,130 @@
   // ==========================================================================
   // 10. ÉCRAN DÉTAIL CLIENT
   // ==========================================================================
+  // ==========================================================================
+  // SUGGESTION DE TEINTE PAR PHOTO — version volontairement limitee et sure :
+  // pas d'IA, pas de formule inventee. On extrait juste la couleur dominante
+  // de la photo (calcul simple, cote navigateur) et on la compare au
+  // nuancier DEJA VALIDE du salon pour proposer la teinte existante la plus
+  // proche visuellement. Presente explicitement comme un point de depart a
+  // valider par la coiffeuse, jamais comme une formule definitive — la
+  // precision d'une vraie formule de coloration ne peut pas s'evaluer a
+  // partir d'une photo (eclairage, ecran, cheveux deja colores en dessous...).
+  function extractDominantColorFromImage(img) {
+    const size = 40;
+    const canvas = document.createElement("canvas"); canvas.width = size; canvas.height = size;
+    const ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0, size, size);
+    // Echantillonne surtout la zone centrale de la photo, pour limiter le
+    // bruit du fond/de la peau si la meche n'occupe pas toute l'image.
+    const region = ctx.getImageData(size*0.25, size*0.25, size*0.5, size*0.5).data;
+    let r=0, g=0, b=0, n=0;
+    for (let i=0; i<region.length; i+=4) { r+=region[i]; g+=region[i+1]; b+=region[i+2]; n++; }
+    return { r: Math.round(r/n), g: Math.round(g/n), b: Math.round(b/n) };
+  }
+  function hexToRgb(hex) {
+    const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex || "");
+    return m ? { r: parseInt(m[1],16), g: parseInt(m[2],16), b: parseInt(m[3],16) } : { r:128, g:128, b:128 };
+  }
+  function findClosestShade(rgb) {
+    let best = null, bestDist = Infinity;
+    (state.shadesCatalog || []).forEach(shade => {
+      const c = hexToRgb(shade.color);
+      const dist = Math.sqrt((c.r-rgb.r)**2 + (c.g-rgb.g)**2 + (c.b-rgb.b)**2);
+      if (dist < bestDist) { bestDist = dist; best = shade; }
+    });
+    return best;
+  }
+  // Extrait le niveau (1-10) d'une etiquette de teinte format standard
+  // "6.0 — Blond fonce" -> 6. Retourne null si le format ne correspond pas.
+  function parseShadeLevel(label) {
+    const m = /^(\d+(?:\.\d+)?)/.exec((label || "").trim());
+    return m ? parseFloat(m[1]) : null;
+  }
+  function openShadeSuggestionModal(client) {
+    let matched = null, photoDataUrl = null, baseLevel = null;
+    openModal({
+      title: t("shade_suggest_title"),
+      bodyBuilder: () => {
+        const wrap = el("div");
+        wrap.appendChild(el("div", { class: "field-hint", style: "margin-bottom:12px;", text: t("shade_suggest_disclaimer") }));
+
+        // Base de depart de la cliente — indispensable pour savoir si la
+        // transition est simple (aller vers plus fonce) ou demande un
+        // eclaircissement prealable (aller vers plus clair), qui ne se
+        // resume jamais a "changer la teinte appliquee".
+        wrap.appendChild(el("label", { class: "field-label", text: t("shade_suggest_base_label") }));
+        const baseSelect = el("select", { style: "margin-bottom:14px;" });
+        baseSelect.appendChild(el("option", { value: "", text: t("shade_suggest_base_placeholder") }));
+        for (let lvl = 1; lvl <= 10; lvl++) baseSelect.appendChild(el("option", { value: String(lvl), text: `${lvl} — ${t("shade_level_" + lvl)}` }));
+        baseSelect.addEventListener("change", () => { baseLevel = baseSelect.value ? Number(baseSelect.value) : null; updateResult(); });
+        wrap.appendChild(baseSelect);
+
+        const preview = el("div", { style: "height:120px; border-radius:12px; border:1px dashed var(--border); display:flex; align-items:center; justify-content:center; cursor:pointer; overflow:hidden; background:var(--surface-2); margin-bottom:12px;" });
+        preview.appendChild(el("span", { style: "font-size:26px;", text: "📷" }));
+        const fileInput = el("input", { type: "file", accept: "image/*", style: "display:none;" });
+        preview.addEventListener("click", () => fileInput.click());
+        const resultBox = el("div");
+        function updateResult() {
+          resultBox.innerHTML = "";
+          if (!matched) return;
+          resultBox.appendChild(el("div", { class: "field-label", style: "margin-top:14px;", text: t("shade_suggest_result") }));
+          resultBox.appendChild(el("div", { class: "card", style: "display:flex; align-items:center; gap:12px; margin-top:6px;" }, [
+            el("div", { style: `width:36px; height:36px; border-radius:50%; background:${matched.color}; flex-shrink:0; border:1px solid var(--border);` }),
+            el("div", { text: matched.label })
+          ]));
+          const targetLevel = parseShadeLevel(matched.label);
+          if (baseLevel == null) {
+            resultBox.appendChild(el("div", { class: "field-hint", style: "margin-top:8px; color:#e0952c;", text: t("shade_suggest_set_base_first") }));
+          } else if (targetLevel != null) {
+            const gap = targetLevel - baseLevel;
+            if (gap >= 2) {
+              resultBox.appendChild(el("div", { class: "status-banner status-error", style: "margin-top:8px;" }, [el("span", { text: tr("shade_suggest_big_lift", { gap: Math.round(gap) }) })]));
+            } else if (gap >= 0.5) {
+              resultBox.appendChild(el("div", { class: "field-hint", style: "margin-top:8px; color:#e0952c;", text: t("shade_suggest_small_lift") }));
+            } else {
+              resultBox.appendChild(el("div", { class: "field-hint", style: "margin-top:8px; color:#1fa85c;", text: t("shade_suggest_darker_ok") }));
+            }
+          } else {
+            // La teinte trouvee ne suit pas le format standard "N.XX — Nom"
+            // (nom personnalise) : impossible de calculer l'ecart de niveau.
+            // Le dire explicitement plutot que de laisser un silence qui
+            // pourrait laisser croire a tort qu'il n'y a pas de souci.
+            resultBox.appendChild(el("div", { class: "field-hint", style: "margin-top:8px;", text: t("shade_suggest_unknown_level") }));
+          }
+        }
+        fileInput.addEventListener("change", async (e) => {
+          const file = e.target.files[0]; if (!file) return;
+          photoDataUrl = await resizeImageFile(file, 300);
+          preview.innerHTML = ""; const img = document.createElement("img");
+          img.src = photoDataUrl; img.style.width = "100%"; img.style.height = "100%"; img.style.objectFit = "cover";
+          preview.appendChild(img);
+          const analysisImg = new Image();
+          analysisImg.onload = () => {
+            const rgb = extractDominantColorFromImage(analysisImg);
+            matched = findClosestShade(rgb);
+            if (!matched) resultBox.appendChild(el("div", { class: "field-error", text: t("shade_suggest_no_catalog") }));
+            else updateResult();
+          };
+          analysisImg.src = photoDataUrl;
+        });
+        wrap.appendChild(preview); wrap.appendChild(fileInput); wrap.appendChild(resultBox);
+        return wrap;
+      },
+      confirmLabel: t("shade_suggest_use"),
+      onConfirm: async () => {
+        if (!matched) { document.querySelector(".field-error").textContent = t("shade_suggest_pick_photo"); return false; }
+        if (baseLevel == null) { document.querySelector(".field-error").textContent = t("shade_suggest_set_base_first"); return false; }
+        // N'insere PAS de recette automatiquement : ouvre juste l'editeur de
+        // nouvelle recette avec cette teinte pre-remplie comme premiere
+        // etape, laissant la coiffeuse composer/ajuster le reste elle-meme
+        // (et decider elle-meme si une decoloration prealable est necessaire).
+        state.editingSteps = [{ id: crypto.randomUUID ? crypto.randomUUID() : String(Date.now()), type: "coloration", label: matched.label, weight: 0 }];
+        state.editingLabel = ""; state.editingFromTemplateId = ""; state.view = "recipe-edit"; render();
+      }
+    });
+  }
+
   function renderClientDetail() {
     const client = getClient(state.currentClientId);
     if (!client) { state.view = "clients"; setTimeout(render, 0); return el("div", { class: "empty-state", text: "Ce client n'existe plus." }); }
@@ -2400,6 +2573,10 @@
     profileCard.appendChild(editBtn);
     main.appendChild(profileCard);
 
+    const suggestBtn = el("button", { class: "btn btn-secondary", style: "margin-bottom:14px;", text: t("shade_suggest_btn") });
+    suggestBtn.addEventListener("click", () => openShadeSuggestionModal(client));
+    main.appendChild(suggestBtn);
+
     if (state.currentClientRecipes.length === 0) {
       main.appendChild(el("div", { class: "empty-state" }, [el("div",{class:"big-emoji",text:"🎨"}), el("div",{text:t("client_no_recipes")})]));
     } else {
@@ -2409,6 +2586,7 @@
           renderBubbleRow(recipe.steps)
         ]);
         applyRecipeCardAccent(card, recipe.steps);
+        card.appendChild(renderBeforeAfterRow(recipe));
         const btnRow = el("div", { class: "recipe-action-row" });
         const sendBtn = el("button", { class: "recipe-action-btn recipe-action-send", text: t("client_send") });
         sendBtn.addEventListener("click", (ev) => { ev.stopPropagation(); state.currentRecipe = recipe; resetBleState(); state.view = "recipe-send"; render(); });
@@ -2501,7 +2679,7 @@
       const tplGroup = el("div", { class: "field-group" });
       tplGroup.appendChild(el("label", { class: "field-label", text: t("recipe_from_template") }));
       const sel = el("select", {}); sel.appendChild(el("option",{value:"",text:t("recipe_free")}));
-      state.templates.forEach(tp => sel.appendChild(el("option", { value: tp.id, text: tp.label })));
+      state.templates.forEach(tp => sel.appendChild(el("option", { value: tp.id, text: templateDisplayLabel(tp) })));
       sel.value = state.editingFromTemplateId;
       sel.addEventListener("change", (e) => {
         const tp = getTemplate(e.target.value); state.editingFromTemplateId = e.target.value;
@@ -2529,6 +2707,7 @@
       const label = state.editingLabel.trim() || `Recette du ${formatDate(new Date().toISOString())}`;
       const { data, error } = await sb.from("recipes").insert({ salon_id: state.profile.salon_id, client_id: client.id, label, steps: state.editingSteps }).select().single();
       if (error) { alert("Erreur : " + error.message); return; }
+      await decrementInventoryForSteps(state.editingSteps);
       state.currentClientRecipes.unshift(data);
       state.view = "client"; render();
     });
@@ -2595,14 +2774,14 @@
   function renderTemplateCards(container, filter) {
     container.innerHTML = "";
     const needle = filter.toLowerCase();
-    const filtered = state.templates.filter(tpl => tpl.label.toLowerCase().includes(needle));
+    const filtered = state.templates.filter(tpl => templateDisplayLabel(tpl).toLowerCase().includes(needle));
     if (filtered.length === 0) {
       container.appendChild(el("div", { class: "empty-state" }, [el("div",{class:"big-emoji",text:"📖"}), el("div",{text: state.templates.length===0 ? t("templates_empty") : t("templates_empty_search")})]));
       return;
     }
     filtered.forEach(tpl => {
       const card = el("div", { class: "card" }, [
-        renderRecipeCardHeader(tpl.label, tpl.steps),
+        renderRecipeCardHeader(templateDisplayLabel(tpl), tpl.steps),
         renderBubbleRow(tpl.steps)
       ]);
       applyRecipeCardAccent(card, tpl.steps);
@@ -2612,9 +2791,9 @@
       if (isPatron()) {
         const row = el("div", { class: "recipe-action-row" });
         const editBtn = el("button", { class: "recipe-action-btn recipe-action-edit", text: t("btn_edit") });
-        editBtn.addEventListener("click", () => { state.currentTemplateId=tpl.id; state.editingSteps=tpl.steps.map(s=>({...s})); state.editingLabel=tpl.label; state.view="template-edit"; render(); });
+        editBtn.addEventListener("click", () => { state.currentTemplateId=tpl.id; state.editingSteps=tpl.steps.map(s=>({...s})); state.editingLabel=templateDisplayLabel(tpl); state.view="template-edit"; render(); });
         const delBtn = el("button", { class: "recipe-action-btn recipe-action-delete", text: t("btn_delete") });
-        delBtn.addEventListener("click", () => confirmDialog(tr("templates_delete_confirm", { label: tpl.label }), async () => {
+        delBtn.addEventListener("click", () => confirmDialog(tr("templates_delete_confirm", { label: templateDisplayLabel(tpl) }), async () => {
           await sb.from("templates").delete().eq("id", tpl.id);
           state.templates = state.templates.filter(x=>x.id!==tpl.id); render();
         }, "btn-danger"));
@@ -2642,9 +2821,12 @@
       if (!label) { errorText.textContent = t("template_name_error"); return; }
       if (state.editingSteps.length===0) { errorText.textContent = t("template_need_product"); return; }
       if (state.currentTemplateId) {
-        const { error } = await sb.from("templates").update({ label, steps: state.editingSteps }).eq("id", state.currentTemplateId);
+        // default_position remis a null : des qu'une recette de base est
+        // modifiee (meme juste renommee), elle devient une recette propre
+        // au salon et ne doit plus etre retraduite automatiquement.
+        const { error } = await sb.from("templates").update({ label, steps: state.editingSteps, default_position: null }).eq("id", state.currentTemplateId);
         if (error) { errorText.textContent = error.message; return; }
-        const tpl = getTemplate(state.currentTemplateId); tpl.label = label; tpl.steps = state.editingSteps;
+        const tpl = getTemplate(state.currentTemplateId); tpl.label = label; tpl.steps = state.editingSteps; tpl.default_position = null;
       } else {
         const { data, error } = await sb.from("templates").insert({ salon_id: state.profile.salon_id, label, steps: state.editingSteps }).select().single();
         if (error) { errorText.textContent = error.message; return; }
@@ -2658,7 +2840,7 @@
   function openAssignTemplateModal(tpl) {
     const selectedIds = new Set();
     openModal({
-      title: tr("assign_title", { label: tpl.label }),
+      title: tr("assign_title", { label: templateDisplayLabel(tpl) }),
       bodyBuilder: (errEl) => {
         const wrap = el("div");
         if (state.clients.length===0) { wrap.appendChild(el("div",{class:"field-hint",text:t("assign_no_client")})); return wrap; }
@@ -2688,9 +2870,12 @@
       onConfirm: async () => {
         if (selectedIds.size === 0) { document.querySelector(".field-error").textContent = t("assign_choose_error"); return false; }
         const idsArray = Array.from(selectedIds);
-        const rows = idsArray.map(clientId => ({ salon_id: state.profile.salon_id, client_id: clientId, label: tpl.label, steps: tpl.steps }));
+        const rows = idsArray.map(clientId => ({ salon_id: state.profile.salon_id, client_id: clientId, label: templateDisplayLabel(tpl), steps: tpl.steps }));
         const { error } = await sb.from("recipes").insert(rows);
         if (error) { document.querySelector(".field-error").textContent = error.message; return false; }
+        // Une decrementation PAR CLIENT assigne (le produit est utilise
+        // autant de fois qu'il y a de clients, pas une seule fois au total).
+        for (let i = 0; i < idsArray.length; i++) await decrementInventoryForSteps(tpl.steps);
         if (idsArray.length === 1) {
           state.currentClientId = idsArray[0];
           await loadClientRecipes(idsArray[0]);
@@ -3094,6 +3279,99 @@
   // ==========================================================================
   // ÉCRAN STATISTIQUES
   // ==========================================================================
+  // ==========================================================================
+  // INVENTAIRE — decompte automatique a chaque recette envoyee (voir
+  // decrementInventoryForSteps), reappro manuel ici.
+  // ==========================================================================
+  function openRestockModal(item) {
+    openModal({
+      title: tr("inventory_restock_title", { label: item.label }),
+      bodyBuilder: () => {
+        const wrap = el("div");
+        wrap.appendChild(el("label", { class: "field-label", text: t("inventory_add_qty") }));
+        const qtyInput = el("input", { type: "number", id: "restockQty", placeholder: "500" });
+        wrap.appendChild(qtyInput);
+        wrap.appendChild(el("label", { class: "field-label", style: "margin-top:12px;", text: t("inventory_alert_threshold") }));
+        const thresholdInput = el("input", { type: "number", id: "restockThreshold" });
+        thresholdInput.value = item.alert_threshold_g;
+        wrap.appendChild(thresholdInput);
+        wrap.appendChild(el("label", { class: "field-label", style: "margin-top:12px;", text: t("inventory_price_per_g") }));
+        const priceInput = el("input", { type: "number", step: "0.01", id: "restockPrice", placeholder: t("inventory_price_optional") });
+        if (item.price_per_g != null) priceInput.value = item.price_per_g;
+        wrap.appendChild(priceInput);
+        return wrap;
+      },
+      confirmLabel: t("inventory_save"),
+      onConfirm: async () => {
+        const qty = Number(document.getElementById("restockQty").value) || 0;
+        const threshold = Number(document.getElementById("restockThreshold").value);
+        const priceRaw = document.getElementById("restockPrice").value;
+        const { error } = await sb.from("inventory_items").update({
+          current_stock_g: item.current_stock_g + qty,
+          alert_threshold_g: isNaN(threshold) ? item.alert_threshold_g : threshold,
+          price_per_g: priceRaw === "" ? null : Number(priceRaw),
+          updated_at: new Date().toISOString()
+        }).eq("id", item.id);
+        if (error) { document.querySelector(".field-error").textContent = error.message; return false; }
+        await loadInventoryData(); render();
+      }
+    });
+  }
+  function openNewInventoryItemModal() {
+    openModal({
+      title: t("inventory_new_title"),
+      bodyBuilder: () => {
+        const wrap = el("div");
+        wrap.appendChild(el("label", { class: "field-label", text: t("inventory_name") }));
+        const nameInput = el("input", { type: "text", id: "newItemName" });
+        wrap.appendChild(nameInput);
+        wrap.appendChild(el("label", { class: "field-label", style: "margin-top:12px;", text: t("inventory_current_stock") }));
+        const stockInput = el("input", { type: "number", id: "newItemStock", placeholder: "1000" });
+        wrap.appendChild(stockInput);
+        return wrap;
+      },
+      confirmLabel: t("inventory_save"),
+      onConfirm: async () => {
+        const name = document.getElementById("newItemName").value.trim();
+        if (!name) { document.querySelector(".field-error").textContent = t("inventory_name_required"); return false; }
+        const stock = Number(document.getElementById("newItemStock").value) || 0;
+        const { error } = await sb.from("inventory_items").insert({ salon_id: state.profile.salon_id, label: name, current_stock_g: stock });
+        if (error) { document.querySelector(".field-error").textContent = error.message; return false; }
+        await loadInventoryData(); render();
+      }
+    });
+  }
+  async function loadInventoryData() {
+    const { data } = await sb.from("inventory_items").select("*").order("label");
+    state.inventoryItems = data || [];
+  }
+  function renderInventoryScreen() {
+    const main = el("main");
+    main.appendChild(el("div", { class: "field-hint", style: "margin-bottom:14px;", text: t("inventory_hint") }));
+    const list = state.inventoryItems || [];
+    if (list.length === 0) main.appendChild(el("div", { class: "card" }, [el("div", { class: "client-meta", text: t("inventory_empty") })]));
+    list.forEach(item => {
+      const low = item.current_stock_g <= item.alert_threshold_g;
+      const card = el("div", { class: "card", style: "margin-bottom:10px;" }, [
+        el("div", { style: "display:flex; justify-content:space-between; align-items:center;" }, [
+          el("div", {}, [
+            el("div", { style: "font-weight:700;", text: item.label }),
+            el("div", { class: "client-meta", text: `${item.current_stock_g}g ${low ? "⚠️ " + t("inventory_low") : ""}` })
+          ]),
+        ])
+      ]);
+      const restockBtn = el("button", { class: "btn btn-secondary", style: "margin-top:8px;", text: t("inventory_restock") });
+      restockBtn.addEventListener("click", () => openRestockModal(item));
+      card.appendChild(restockBtn);
+      if (low) card.style.borderColor = "#e0952c";
+      main.appendChild(card);
+    });
+    const addBtn = el("button", { class: "btn btn-primary", style: "margin-top:10px;", text: t("inventory_new_item") });
+    addBtn.addEventListener("click", openNewInventoryItemModal);
+    main.appendChild(addBtn);
+    return main;
+  }
+
   function renderStatsScreen() {
     const main = el("main");
     const loadingDiv = el("div", { class: "spinner-wrap", style: "min-height:200px;" }, [el("div",{class:"spinner"})]);
@@ -3136,6 +3414,16 @@
       if (stats.topShade) {
         main.appendChild(el("div", { class: "field-label", style: "margin:20px 0 8px;", text: t("stats_top_shade") }));
         main.appendChild(el("div", { class: "card" }, [renderBubbleRow([{ type: "coloration", label: stats.topShade.label, weight: Math.min(100, stats.topShade.weight) }])]));
+      }
+
+      if (stats.avgCostPerClient != null) {
+        main.appendChild(el("div", { class: "field-label", style: "margin:20px 0 8px;", text: t("stats_avg_cost") }));
+        main.appendChild(el("div", { class: "card" }, [
+          el("div", { class: "stat-big-number", text: stats.avgCostPerClient.toFixed(2) }),
+          el("div", { class: "stat-big-label", text: t("stats_avg_cost_hint") })
+        ]));
+      } else {
+        main.appendChild(el("div", { class: "field-hint", style: "margin-top:10px;", text: t("stats_avg_cost_missing") }));
       }
 
       main.appendChild(el("div", { class: "note", text: t("stats_loss_note") }));
@@ -3206,7 +3494,7 @@
   }
 
   async function loadStatsData() {
-    const { data: recipes } = await sb.from("recipes").select("label, steps").eq("salon_id", state.profile.salon_id);
+    const { data: recipes } = await sb.from("recipes").select("label, steps, client_id").eq("salon_id", state.profile.salon_id);
     const list = recipes || [];
     const recipeCounts = {};
     const productTotals = {};
@@ -3221,7 +3509,22 @@
     const topProducts = Object.entries(productTotals).map(([label, v]) => ({ label, weight: Math.round(v.weight), type: v.type })).sort((a,b) => b.weight - a.weight).slice(0, 6);
     const colorationOnly = Object.entries(productTotals).filter(([_, v]) => v.type === "coloration").map(([label, v]) => ({ label, weight: Math.round(v.weight) }));
     const topShade = colorationOnly.sort((a,b) => b.weight - a.weight)[0] || null;
-    return { totalRecipes: list.length, totalClients: state.clients.length, topRecipes, topProducts, topShade };
+
+    // Cout moyen par client : necessite que le salon ait renseigne un prix
+    // au gramme sur au moins un produit dans l'inventaire (price_per_g).
+    // Reste "null" (et donc masque a l'affichage) si aucun prix n'est
+    // renseigne, plutot que d'afficher un chiffre a 0 trompeur.
+    const { data: priced } = await sb.from("inventory_items").select("label, price_per_g").eq("salon_id", state.profile.salon_id).not("price_per_g", "is", null);
+    let avgCostPerClient = null;
+    if (priced && priced.length > 0) {
+      const priceMap = {}; priced.forEach(p => priceMap[p.label] = p.price_per_g);
+      let totalCost = 0;
+      list.forEach(r => (r.steps || []).forEach(s => { if (priceMap[s.label] != null) totalCost += (Number(s.weight) || 0) * priceMap[s.label]; }));
+      const clientsAvecRecette = new Set(list.map(r => r.client_id)).size;
+      if (clientsAvecRecette > 0) avgCostPerClient = totalCost / clientsAvecRecette;
+    }
+
+    return { totalRecipes: list.length, totalClients: state.clients.length, topRecipes, topProducts, topShade, avgCostPerClient };
   }
 
   async function loadTeamInto(container) {
